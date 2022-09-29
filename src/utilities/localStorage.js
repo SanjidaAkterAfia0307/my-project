@@ -1,22 +1,24 @@
-function setLocalRest(rest){
-    let totalRest=localStorage.getItem("Rest")
+function setLocalRest(rest,id){
+    let totalRest=localStorage.getItem(id)
   if(totalRest){
     totalRest=rest
-    localStorage.setItem("Rest",rest)
+    localStorage.setItem(id,rest)
   }else{
 
-    localStorage.setItem("Rest",rest)
+    localStorage.setItem(id,rest)
   }
 }
-function getLocalRest(){
-    let totalRest=localStorage.getItem("Rest")
-   if(totalRest){
-    parseInt(totalRest)
+function getLocal(id){
+    let total=localStorage.getItem(id)
+   if(total){
+    JSON.parse(total)
+    // console.log("if")
   }else{
-    totalRest=0
+    total=0
+    // console.log("else")
   }
-  return totalRest
+  return total
 }
 
 
-export {setLocalRest,getLocalRest}
+export {setLocalRest,getLocal}

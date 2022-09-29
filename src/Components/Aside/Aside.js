@@ -1,25 +1,24 @@
 import React, { useState } from 'react';
-import {  getLocalRest, setLocalRest } from '../../utilities/localStorage';
+import {  getLocal, setLocalRest } from '../../utilities/localStorage';
 
 const Aside = (props) => {
-  const {cards}=props
-  console.log(cards)
-  let total=0;
+  const {cards,hour}=props
 
-  for (const card of cards) {
-    total=total+parseFloat(card.time)
-  }
-  console.log(total)
 
-  const [rest,setRest]=useState(getLocalRest())
+
+   
+
+//   console.log(total)
+
+  const [rest,setRest]=useState(getLocal("Rest"))
   const handleRest=(addRest)=>{
-    console.log(addRest)
-    const newRest=parseInt(rest)+addRest;
+
+    const newRest=addRest;
     setRest(newRest)
-    getLocalRest(newRest)
+    
   }
   
-  setLocalRest(rest)
+  setLocalRest(rest,"Rest")
 
     return (
         <div className='bg-gray-200 rounded-md static lg:fixed'>
@@ -47,20 +46,20 @@ const Aside = (props) => {
                     </div>
                 </div>
                 <h2  className='font-bold text-2xl'>Add a break!</h2>
-                <div className='flex bg-slate-50 m-2 p-4 gap-6 justify-around rounded-xl'>
-                    <div onClick={()=>handleRest(5)}  className='bg-gray-300 rounded-full px-3 py-4 hover:bg-purple-600'>
+                <div className='grid md:grid-cols-4 grid-cols-2 bg-slate-50 m-2 p-8 gap-6 justify-around rounded-xl'>
+                    <div onClick={()=>handleRest(5)}  className='bg-gray-300 rounded-lg p-1 text-center hover:bg-purple-600'>
                         <p className='font-bold text-xl'>5<span>min</span></p>
                         
                     </div>
-                    <div onClick={()=>handleRest(10)}  className='bg-gray-300 rounded-full px-3 py-5 hover:bg-purple-600'>
+                    <div onClick={()=>handleRest(10)}  className='bg-gray-300 rounded-lg p-1 text-center hover:bg-purple-600'>
                         <p className='font-bold text-xl'>10<span>min</span></p>
                         
                     </div>
-                    <div onClick={()=>handleRest(15)}  className='bg-gray-300 rounded-full px-3 py-6 hover:bg-purple-600'>
+                    <div onClick={()=>handleRest(15)}  className='bg-gray-300 rounded-lg p-1 text-center hover:bg-purple-600'>
                         <p className='font-bold text-xl'>15<span>min</span></p>
                        
                     </div>
-                    <div onClick={()=>handleRest(20)}  className='bg-gray-300 rounded-full px-3 py-6 hover:bg-purple-600'>
+                    <div onClick={()=>handleRest(20)}  className='bg-gray-300 rounded-lg p-1 text-center hover:bg-purple-600'>
                         <p className='font-bold text-xl'>20<span>min</span></p>
                        
                     </div>
@@ -70,7 +69,7 @@ const Aside = (props) => {
 
                 <div className='flex justify-around bg-slate-50 rounded-md p-2 font-semibold text-base m-4'>
                     <p>Study Time</p>
-                    <p>{total}<span>hours</span></p>
+                    <p>{hour}<span>hours</span></p>
                 </div>
                 <div className='flex justify-around bg-slate-50 rounded-md p-2 font-semibold text-base m-4'>
                     <p>Rest</p>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { getLocal, setLocalRest } from '../../utilities/localStorage';
 import Aside from '../Aside/Aside';
 import Card from '../CardContainer/Card';
 import CardPiece from '../CardPiece/CardPiece';
@@ -8,21 +9,26 @@ const Main = () => {
  
   const [cards,setCards]=useState([])
   const [lists,setLists]=useState([])
+  let localHour=getLocal("Study Hour")
+  localHour=parseFloat(localHour)
+
+  const [hour,setHour]=useState(localHour)
+
   
   useEffect(()=>{
       fetch("cards.json")
       .then(res=>res.json())
       .then(data=>setCards(data))
   },[])
-
  const  addList=(card)=>{
-      console.log(card)
       
+      const newHour=parseFloat(hour)+parseFloat(card.time)
+      setHour(newHour)
       const newCard=[...lists,card]
       setLists(newCard)
       
   }
-
+setLocalRest(hour ,"Study Hour")
 
 
 
@@ -39,7 +45,7 @@ const Main = () => {
       </div>
 
       <div>
-      <Aside cards={lists}></Aside>
+      <Aside cards={lists} hour={hour}></Aside>
       </div>
         </div>
     );
