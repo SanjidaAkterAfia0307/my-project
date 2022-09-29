@@ -9,7 +9,7 @@ const CardPiece = (props) => {
                 <h3 className='m-2 text-2xl font-semibold text-slate-700'>{sub}</h3>
                 <p className='m-2 text-lg'>Needed to read: <span className='font-semibold'>{time}hour</span></p>
                 <div className='text-center m-6'>
-                <button className='rounded-2xl bg-cyan-600 py-2 px-10 text-white'>Add to Table</button>
+                <button onClick={()=>props.addList(sub)} className='rounded-2xl bg-cyan-600 py-2 px-10 text-white'>Add to Table</button>
                 </div>
             </div>
      
