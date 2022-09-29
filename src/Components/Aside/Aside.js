@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import {  getLocal, setLocalRest } from '../../utilities/localStorage';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Aside = (props) => {
   const {cards,hour}=props
 
 
 
-   
+   const notify=()=>toast.success("Activity Successful!!!",{position:"top-center",theme:"colored"})
 
 //   console.log(total)
 
@@ -47,7 +50,7 @@ const Aside = (props) => {
                 </div>
                 <h2  className='font-bold text-2xl'>Add a break!</h2>
                 <div className='grid md:grid-cols-4 grid-cols-2 bg-slate-50 m-2 p-8 gap-6 justify-around rounded-xl'>
-                    <div onClick={()=>handleRest(5)}  className='bg-gray-300 rounded-lg p-1 text-center hover:bg-purple-600'>
+                    <div onClick={()=>handleRest(5)}  className='bg-gray-300 rounded-lg p-1 flex items-center hover:bg-purple-600'>
                         <p className='font-bold text-xl'>5<span>min</span></p>
                         
                     </div>
@@ -78,7 +81,8 @@ const Aside = (props) => {
                 </div>
 
                 <div className='text-center my-10'>
-                <button className='font-semibold text-white rounded-2xl px-10 py-4 bg-teal-700'>Activity Completed</button>
+                <button onClick={notify} className='font-semibold text-white rounded-2xl px-10 py-4 bg-teal-700'>Activity Completed</button>
+                <ToastContainer></ToastContainer>
                 </div>
             </div>
            </div>

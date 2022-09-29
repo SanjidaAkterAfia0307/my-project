@@ -4,6 +4,7 @@ import Aside from '../Aside/Aside';
 import Card from '../CardContainer/Card';
 import CardPiece from '../CardPiece/CardPiece';
 import Head from '../Header/Head';
+import Que from '../Que/Que';
 
 const Main = () => {
  
@@ -34,7 +35,8 @@ setLocalRest(hour ,"Study Hour")
 
 
     return (
-        <div className='block lg:grid lg:grid-cols-4 '>
+       <div>
+         <div className='block lg:grid lg:grid-cols-4 '>
           <div className='m-10 lg:mt-28 lg:ml-32 col-span-3'>
         <Head></Head>
         <div className='grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-4 '>
@@ -42,12 +44,18 @@ setLocalRest(hour ,"Study Hour")
               cards.map(card=> <CardPiece card={card} key={card.id} addList={addList}></CardPiece>)
           }
       </div>
+      <div>
+          <Que></Que>
+        </div>
       </div>
 
       <div>
       <Aside cards={lists} hour={hour}></Aside>
       </div>
+      
         </div>
+        
+       </div>
     );
 };
 
