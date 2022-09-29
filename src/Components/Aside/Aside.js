@@ -50,7 +50,7 @@ const Aside = (props) => {
                 </div>
                 <h2  className='font-bold text-2xl'>Add a break!</h2>
                 <div className='grid md:grid-cols-4 grid-cols-2 bg-slate-50 m-2 p-8 gap-6 justify-around rounded-xl'>
-                    <div onClick={()=>handleRest(5)}  className='bg-gray-300 rounded-lg p-1 flex items-center hover:bg-purple-600'>
+                    <div onClick={()=>handleRest(5)}  className='bg-gray-300 rounded-lg p-1 text-center hover:bg-purple-600'>
                         <p className='font-bold text-xl'>5<span>min</span></p>
                         
                     </div>
