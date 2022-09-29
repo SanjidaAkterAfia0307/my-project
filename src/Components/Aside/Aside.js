@@ -1,6 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Aside = () => {
+const Aside = (props) => {
+  const {cards}=props
+  console.log(cards)
+  let total=0;
+
+  for (const card of cards) {
+    total=total+parseFloat(card.time)
+  }
+  console.log(total)
+
+  const [rest,setRest]=useState(0)
+  const handleRest=(addRest)=>{
+    const newRest=rest+addRest;
+    setRest(newRest)
+  }
     return (
         <div className='bg-gray-200 rounded-md static lg:fixed'>
            <div>
@@ -28,16 +42,20 @@ const Aside = () => {
                 </div>
                 <h2  className='font-bold text-2xl'>Add a break!</h2>
                 <div className='flex bg-slate-50 m-2 p-4 gap-6 justify-around rounded-xl'>
-                    <div className='bg-gray-300 rounded-full px-3 py-4 hover:bg-purple-600'>
+                    <div onClick={()=>handleRest(5)}  className='bg-gray-300 rounded-full px-3 py-4 hover:bg-purple-600'>
                         <p className='font-bold text-xl'>5<span>min</span></p>
                         
                     </div>
-                    <div  className='bg-gray-300 rounded-full px-3 py-5 hover:bg-purple-600'>
+                    <div onClick={()=>handleRest(10)}  className='bg-gray-300 rounded-full px-3 py-5 hover:bg-purple-600'>
                         <p className='font-bold text-xl'>10<span>min</span></p>
                         
                     </div>
-                    <div  className='bg-gray-300 rounded-full px-3 py-6 hover:bg-purple-600'>
+                    <div onClick={()=>handleRest(15)}  className='bg-gray-300 rounded-full px-3 py-6 hover:bg-purple-600'>
                         <p className='font-bold text-xl'>15<span>min</span></p>
+                       
+                    </div>
+                    <div onClick={()=>handleRest(20)}  className='bg-gray-300 rounded-full px-3 py-6 hover:bg-purple-600'>
+                        <p className='font-bold text-xl'>20<span>min</span></p>
                        
                     </div>
                 </div>
@@ -46,11 +64,11 @@ const Aside = () => {
 
                 <div className='flex justify-around bg-slate-50 rounded-md p-2 font-semibold text-base m-4'>
                     <p>Study Time</p>
-                    <p><span>hours</span></p>
+                    <p>{total}<span>hours</span></p>
                 </div>
                 <div className='flex justify-around bg-slate-50 rounded-md p-2 font-semibold text-base m-4'>
                     <p>Rest</p>
-                    <p></p>
+                    <p >{rest}min</p>
                 </div>
                 </div>
 
