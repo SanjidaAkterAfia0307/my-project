@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getLocal, setLocalRest } from '../../utilities/localStorage';
 import Aside from '../Aside/Aside';
-import Card from '../CardContainer/Card';
+
 import CardPiece from '../CardPiece/CardPiece';
 import Head from '../Header/Head';
 import Que from '../Que/Que';
