@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {  getLocalRest, setLocalRest } from '../../utilities/localStorage';
 
 const Aside = (props) => {
   const {cards}=props
@@ -10,11 +11,16 @@ const Aside = (props) => {
   }
   console.log(total)
 
-  const [rest,setRest]=useState(0)
+  const [rest,setRest]=useState(getLocalRest())
   const handleRest=(addRest)=>{
-    const newRest=rest+addRest;
+    console.log(addRest)
+    const newRest=parseInt(rest)+addRest;
     setRest(newRest)
+    getLocalRest(newRest)
   }
+  
+  setLocalRest(rest)
+
     return (
         <div className='bg-gray-200 rounded-md static lg:fixed'>
            <div>
