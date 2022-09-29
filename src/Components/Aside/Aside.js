@@ -34,7 +34,7 @@ const Aside = (props) => {
                     <p className='font-semibold text-gray-600'>Chicago,US</p>
                 </div>
                 </div>
-                <div className='flex bg-slate-50 m-2 p-4 gap-6 justify-around rounded-3xl'>
+                <div className='grid md:grid-cols-3 grid-cols-2 bg-slate-50 m-2 p-4 gap-6 justify-around rounded-3xl'>
                     <div>
                         <p className='font-bold text-xl'>Profession</p>
                         <p className='font-semibold text-gray-600'>Student</p>
